@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afficher une Photo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #photo {
+            margin-top: 20px;
+            display: none;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Entrez votre nom et prénom</h1>
+    <form id="form">
+        <label for="nom">Nom: </label>
+        <input type="text" id="nom" required><br><br>
+        <label for="prenom">Prénom: </label>
+        <input type="text" id="prenom" required><br><br>
+        <button type="submit">Afficher la photo</button>
+    </form>
+    <img id="photo" src="https://i.postimg.cc/Jz6w09jc/IMG-0105.png" alt="Votre photo">
+    <p id="message" style="color: red; display: none;">Nom ou prénom incorrect.</p>
+
+    <script>
+        const form = document.getElementById('form');
+        const photo = document.getElementById('photo');
+        const message = document.getElementById('message');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nom = document.getElementById('nom').value.trim().toLowerCase();
+            const prenom = document.getElementById('prenom').value.trim().toLowerCase();
+
+            if (nom === "boualga" && prenom === "zakaria habib") {
+                photo.style.display = "block";
+                message.style.display = "none";
+            } else {
+                photo.style.display = "none";
+                message.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
